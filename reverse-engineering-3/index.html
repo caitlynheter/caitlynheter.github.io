@@ -1,0 +1,157 @@
+<head>
+	<title>Caitlyn's Highmaps Project</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script src="http://code.highcharts.com/maps/highmaps.js"></script>
+	<script src="http://code.highcharts.com/mapdata/countries/us/us-all-all.js"></script>
+
+	<style type="text/css">
+
+		ul {
+			list-style:none;
+			line-height:1.6;
+			float:left;
+			margin:0;
+			padding:10px,0px,0px;
+		}
+		li {
+			display:block;
+			text-align:center;
+			font-family:sans-serif;
+			float:left;
+			list-style:none;
+			font-size: .9em
+		}
+
+		span {
+			width:40px;
+			height:12px;
+			display:block;
+			float:left;
+		}
+	</style>
+
+</head>
+
+<body>
+
+
+<div class="map-container">
+	<div class="legend-title">
+		Percent of children with EBLLs between 5 &#x3BC;g/dL and 9 &#x3BC;g/dL
+	</div>
+	<div class="legend">
+		<ul>
+			<li>
+				<span style="background:#cccccc;"></span><br>
+				n/a
+			</li>
+			<li>
+				<span style="background:#999999;"></span><br>
+				<5 <br> tested
+			</li>
+			<li>
+				<span style="background:#E6E3F0;"></span><br>
+				<0%
+			</li>
+			<li>
+				<span style="background:#CBC9E2;"></span><br>
+				<.3%
+			</li>
+			<li>
+				<span style="background:#9e9ac8;"></span><br>
+				<.8%
+			</li>
+			<li>
+				<span style="background:#6a51a3;"></span><br>
+				>.8%
+			</li>
+
+
+		</ul>
+	</div>
+
+	<script>
+		/*SCRIPT*/
+
+			$( function () {
+				$.getJSON("data/tutorial-data.json", function (data) {
+
+					var countiesMap = Highcharts.geojson(Highcharts.maps["countries/us/us-all-all"]),
+					lines = Highcharts.geojson(Highcharts.maps["countries/us/us-all-all"], "mapline"),
+					options;
+
+					options={
+
+						series:[{
+							mapData: countiesMap,
+							data: data,
+							joinBy: ["hc-key","code"],
+							name:"Positive Cases",
+							nullColor:"#cccccc",
+							borderColor:"#ffffff",
+							borderWidth: .5,
+							states: {
+								hover: {
+									color:"#ffffff"
+								}
+							}
+
+						}],
+						
+
+						colorAxis:{
+							dataClasses:[
+								{
+									name:"n/a",
+									color:"#cccccc"
+								},
+								{
+									name:"<5 tested",
+									color:"#999999"
+								},
+								{
+									to:0,
+									color:"#E6E3F0"
+								},
+								{
+									from:.1,
+									to:.299,
+									color:"#CBC9E2"
+								},
+								{
+									from:.3,
+									to:.799,
+									color:"#9e9ac8"
+								},
+								{
+									from:.8,
+									to:100,
+									color:"#6a51a3"
+								},
+							]
+						},
+
+						title:{
+							text:""
+						},
+
+						credits:{
+							enabled:false
+						},
+
+						legend:{
+							enabled:false
+						}
+
+					};
+
+					$("#container").highcharts("Map",options);
+				});
+
+			});
+
+	</script>
+</div>
+	<div id="container">Downloading map...</div>
+
+</body>
