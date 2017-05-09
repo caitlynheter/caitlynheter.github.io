@@ -1,0 +1,1079 @@
+<head>
+	<title>Data Story 3: Child Safety in Philadelphia</title>
+
+    <style>
+        h1{
+            font-family:sans-serif;
+            size:3em;
+        }
+        h2{
+            font-family:sans-serif;
+            size:1.5em;
+        }
+        h3{
+            font-family:sans-serif;
+            size:1em;
+        }
+        h4{
+            font-family:sans-serif;
+            size:1em;
+        }
+        p{
+            font-family:sans-serif;
+            size:.9em;
+        }
+        .header{
+            line-height:25px;
+            width:80%;
+            margin:0 auto;
+            margin-top:20px;
+            border-bottom:solid 2px gray;
+
+        }
+        .part-1{
+            line-height:18px;
+            width:35%;
+            margin-left:10%;
+            margin-right:5%;
+            float:left;
+        }
+        .part-2{
+            line-height:18px;
+            width:35%;
+            margin-right:10%;
+            margin-left:5%;
+            float:left;
+        }
+
+        .clients-chart{
+            float:left;
+        }
+
+        #us-maltreatment{
+            margin-left:-60px;
+            float:right;
+        }
+        #pa-maltreatment{
+            margin-left:-50px;
+        }
+        .part-3{
+            width:80%;
+            margin:0 auto;
+            clear:both;
+            border-top:solid 2px gray;
+        }
+        .part-3 h3{
+            text-align:center;
+        }
+        .card {display:none;}
+        #PA-card {
+            display:block;
+            float:left; 
+            width:45%; 
+            height:275px;
+            margin-left: 10px; 
+            border:1px solid #efefef; 
+            border-radius:3px; 
+            font-family:sans-serif; 
+            padding: 10px; 
+        }
+        #prompt-card {
+            display:block;
+            text-align:center;
+        }
+
+        .state-groups:hover {
+            cursor:pointer;
+            stroke: #717573; 
+            stroke-width: 1px;
+        }
+        svg {
+            max-width:600px; 
+            display:block;
+            margin:auto;
+        }
+        .state-groups.active {stroke: #717573; stroke-width: 1.3px;}
+        .card {
+            float:right; 
+            width:45%; 
+            height:275px;
+            margin-left: 10px; 
+            border:1px solid #efefef; 
+            border-radius:3px; 
+            font-family:sans-serif; 
+            padding: 10px; 
+            display:none;
+        }
+        
+        .map{
+
+        }
+
+        .map p {
+            font-size:1em;
+            line-height:1em;
+        }
+        .map h3 {
+            font-size:1.3em;
+        }
+        .map svg{
+
+        }
+        .explain{
+            color:#717573;
+            text-align:center;
+
+        }
+        .callout{
+            background-color:rgba(133, 170, 0, 0.35);
+            padding:3px;
+            border-radius:3px;
+            display:inline-block;
+        }
+        .footer{
+            clear:both;
+            text-align:center;
+        }
+
+    </style>
+    <!--JS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript" language="JavaScript">
+        
+        $( document ).ready(function() {
+
+            $(".state-groups").click(function() {$('.state-groups.active').removeClass('active'); $(this).addClass('active'); });
+
+                $("#PA").on('click', function() {
+                $(".card").hide();
+                $("#prompt-card").show();
+                });
+
+                $("#ME").on('click', function() {
+                $(".card").hide();
+                $("#ME-card").show();
+                });
+
+                $("#WI").on('click', function() {
+                $(".card").hide();
+                $("#WI-card").show();
+                });
+
+                $("#VT").on('click', function() {
+                $(".card").hide();
+                $("#VT-card").show();
+                });
+                
+                $("#NH").on('click', function() {
+                $(".card").hide();
+                $("#NH-card").show();
+                });
+
+
+                $("#MA").on('click', function() {
+                $(".card").hide();
+                $("#MA-card").show();
+                });
+
+                $("#NY").on('click', function() {
+                $(".card").hide();
+                $("#NY-card").show();
+                });
+
+                $("#MI").on('click', function() {
+                $(".card").hide();
+                $("#MI-card").show();
+                });
+
+                $("#IL").on('click', function() {
+                $(".card").hide();
+                $("#IL-card").show();
+                });
+
+                $("#MN").on('click', function() {
+                $(".card").hide();
+                $("#MN-card").show();
+                });
+
+                $("#ND").on('click', function() {
+                $(".card").hide();
+                $("#ND-card").show();
+                });
+
+                $("#MT").on('click', function() {
+                $(".card").hide();
+                $("#MT-card").show();
+                });
+
+                $("#ID").on('click', function() {
+                $(".card").hide();
+                $("#ID-card").show();
+                });
+
+                $("#WA").on('click', function() {
+                $(".card").hide();
+                $("#WA-card").show();
+                });
+
+                $("#RI").on('click', function() {
+                $(".card").hide();
+                $("#RI-card").show();
+                });
+
+                $("#CT").on('click', function() {
+                $(".card").hide();
+                $("#CT-card").show();
+                });
+
+                $("#NJ").on('click', function() {
+                $(".card").hide();
+                $("#NJ-card").show();
+                });
+
+
+                $("#OH").on('click', function() {
+                $(".card").hide();
+                $("#OH-card").show();
+                });
+
+                $("#IN").on('click', function() {
+                $(".card").hide();
+                $("#IN-card").show();
+                });
+
+                $("#IA").on('click', function() {
+                $(".card").hide();
+                $("#IA-card").show();
+                });
+
+                $("#SD").on('click', function() {
+                $(".card").hide();
+                $("#SD-card").show();
+                });
+
+
+                $("#WY").on('click', function() {
+                $(".card").hide();
+                $("#WY-card").show();
+                });
+
+                $("#NV").on('click', function() {
+                $(".card").hide();
+                $("#NV-card").show();
+                });
+
+                $("#OR").on('click', function() {
+                $(".card").hide();
+                $("#OR-card").show();
+                });
+
+                $("#DE").on('click', function() {
+                $(".card").hide();
+                $("#DE-card").show();
+                });
+
+                $("#MD").on('click', function() {
+                $(".card").hide();
+                $("#MD-card").show();
+                });
+
+                $("#VA").on('click', function() {
+                $(".card").hide();
+                $("#VA-card").show();
+                });
+
+                $("#WV").on('click', function() {
+                $(".card").hide();
+                $("#WV-card").show();
+                });
+
+                $("#KY").on('click', function() {
+                $(".card").hide();
+                $("#KY-card").show();
+                });
+
+                $("#MO").on('click', function() {
+                $(".card").hide();
+                $("#MO-card").show();
+                });
+
+
+                $("#NE").on('click', function() {
+                $(".card").hide();
+                $("#NE-card").show();
+                });
+
+                $("#CO").on('click', function() {
+                $(".card").hide();
+                $("#CO-card").show();
+                });
+
+                $("#UT").on('click', function() {
+                $(".card").hide();
+                $("#UT-card").show();
+                });
+
+                $("#CA").on('click', function() {
+                $(".card").hide();
+                $("#CA-card").show();
+                });
+
+                $("#DC").on('click', function() {
+                $(".card").hide();
+                $("#DC-card").show();
+                });
+
+                $("#SC").on('click', function() {
+                $(".card").hide();
+                $("#SC-card").show();
+                });
+
+                $("#NC").on('click', function() {
+                $(".card").hide();
+                $("#NC-card").show();
+                });
+
+                $("#TN").on('click', function() {
+                $(".card").hide();
+                $("#TN-card").show();
+                });
+
+                $("#AR").on('click', function() {
+                $(".card").hide();
+                $("#AR-card").show();
+                });
+
+                $("#KS").on('click', function() {
+                $(".card").hide();
+                $("#KS-card").show();
+                });
+
+                $("#NM").on('click', function() {
+                $(".card").hide();
+                $("#NM-card").show();
+                });
+
+                $("#AZ").on('click', function() {
+                $(".card").hide();
+                $("#AZ-card").show();
+                });
+
+                $("#GA").on('click', function() {
+                $(".card").hide();
+                $("#GA-card").show();
+                });
+
+                $("#AL").on('click', function() {
+                $(".card").hide();
+                $("#AL-card").show();
+                });
+
+                $("#MS").on('click', function() {
+                $(".card").hide();
+                $("#MS-card").show();
+                });
+
+                $("#LA").on('click', function() {
+                $(".card").hide();
+                $("#LA-card").show();
+                });
+
+                $("#OK").on('click', function() {
+                $(".card").hide();
+                $("#OK-card").show();
+                });
+
+                $("#FL").on('click', function() {
+                $(".card").hide();
+                $("#FL-card").show();
+                });
+
+                $("#TX").on('click', function() {
+                $(".card").hide();
+                $("#TX-card").show();
+                });
+
+                $("#HI").on('click', function() {
+                $(".card").hide();
+                $("#HI-card").show();
+
+                });
+
+                $("#AK").on('click', function() {
+                $(".card").hide();
+                $("#AK-card").show();
+
+                });
+
+        });
+
+    </script>
+
+</head>
+
+
+
+<body>
+    <div class="header">
+        <h1>Celebrating "Forty" at the Support Center for Child Advocates</h1>
+        <h2>Forty years later, they're still working to "change the story." Here's a glimpse at the current state of child safety in Philadelphia and beyond.</h2>
+        <h2>By Caitlyn Heter | May 9, 2017</h2>
+    </div>
+    <div class= "part-1">
+        <h3>An Important Anniversary</h3>
+        <h4>Staff members of the Support Center for Child Advocates celebrate and reflect.</h4>
+        <p>
+            Forty-five years ago, on May 18, 1972, a small team of young lawyers worked late to prepare a petition to represent a child victim of abuse, F.A. They succeeded, and in 1975 a child's right to counsel became law in Pennsylvania. Through the efforts of those young lawyers, the Support Center for Child Advocates was incorporated on February 1, 1977.
+            </p><p>"Forty years is a big milestone for any non-profit," said Moira Mulroney, director of development and communications at the Support Center for Child Advocates. "We wanted to leverage it to increase funds and increase awareness."
+            </p><p>The Support Center for Child Advocates recently moved to its fourth office in forty years, and launched the celebration of the fortieth anniversary with an open house event in January. More recently, the agency held its Annual Benefit Reception and Auction in the Crystal Tea Room of the Wanamaker Building on April 19. Included in the festivities were a ceremony honoring forty of the organization's volunteers and influencers, as well as the presentation of the organization's first Andi Broad Distinguished Client Award, named for former board member Andrea Broad who passed away on February 23, 2017. 
+            </p><p>"It brought back a lot of memories for people," said Cate Galbally, the Support Center for Child Advocates' development officer, of the event. "It was an exciting way to reconnect with people... it reengaged our founders." Many of whom, she added, have moved on to different cities since the center was created. "For a lot of them, they lost touch a little bit. And this has been a special time for them."
+            </p><p>"Forty years ago, these were kids - these were twenty-somethings. They were a couple years out of law school and they decided they were going to change the world. And they did," said Mulroney. "To me it just blows my mind that a bunch of 25-year-old kids made this happen."
+            </p><p>The center is also developing a "Young Friends" group to draw the support and volunteerism of the very type of young professionals who started it all. 
+            </p><p>Director of Social Work Tracey Thomasey related some challenges of the Support Center for Child Advocates' social work department, and how the environment has changed over time. She heard first-hand accounts from the agency's earliest volunteers and employees at a Founders' Dinner event which preceded the Annual Benefit Reception. "Forty years ago, there was no process. There was no procedure. It was all ad hoc. And people were literally flying by the seat of their pants to figure out how to represent kids."
+            </p><p>"In the systems and procedures and rules that we have now established, that is just terrifying," said Thomasey. "And it's hard to believe that it was only 40 years ago where there was nothing."
+            </p><p>Thomasey began working in child advocacy in 1998 and has been with the Support Center for Child Advocates since 2000. She identified a major shift that began early on in her involvement with child advocacy: The Adoption and Safe Families Act, which pushed advocates to work toward permanency for their child clients. According to Thomasey, that federal law, which passed in 1997, has led to a visible change in outcomes during her career at the Support Center for Child Advocates. "When I got here, my caseload was all teenagers who had been in foster care their entire lives. And that's not what our cases look like now."
+            </p><p>In Pennsylvania, the number of substantiated reports of child abuse and neglect increased very slightly in 2016, to 1.7 substantiated reports per 1000 children from 1.6 in 2015. The state received reports from 46,196 reporters, and ChildLine, its toll-free child abuse hotline, received 166,971 calls over the year.
+            </p><p>Seeking permanency means that more cases can be closed with children in safe, stable homes. "The best outcome is not ever being back in the system," Thomasey said.
+            </p><p>Thomasey observed that in recent years, the Support Center for Child Advocates has grown significantly. "I think we're a lot bigger than anyone conceived of us becoming. And we have to do some adjusting to that."
+            </p><p>For the Support Center for Child Advocates, growth means being able to increase the number of cases handled. That means helping more children to find positive outcomes and live lives free of abuse and neglect.
+            </p><p>The agency's ability to help is also limited to the availability of volunteer attorneys, over 300 of whom provide the legal counsel made possible by the efforts of the Support Center for Child Advocates' founders in the F.A. case. "In our growth, our volunteer base hasn't grown despite a lot of efforts," Thomasey noted. "It does make one wonder whether perhaps we've reached that plateau, that cap on what the number is that is sustainable for volunteers doing this work in Philadelphia, and what that means to us, as an agency, when that doesn't meet the needs of all our clients. With that always comes a focus on recruitment and retention of volunteers."
+            </p><p>A lot can change in forty years, but the goal of the Support Center has remained steady: change the story for child victims of abuse and neglect. "The mission is so pure. And it's so important to all of us, here," said Mulroney.
+        </p>
+    </div>
+
+    <div class="part-2">
+        <h3>Local Impact</h3>
+        <h4>A look at child safety statistics in Philadelphia County and the impact of the Support Center for Child Advocates</h4>
+
+        <p>
+            Pennsylvania's distribution of maltreatment types is wildly different from the national average. This could be due in part to Pennsylvania's low referral rates, meaning that fewer reports are generated per 1,000 children living in the state. 
+        </p>
+        <p>
+            To compare Pennsylvania's referral rate to that of other states, continue to "A Look at the Country."
+        </p>
+
+        <iframe class="pie" id="PA-maltreatment" width="250" height="250" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/1r5Z-XrVoO7o5kY_Mqadp6TAyKDrvGHvw-RSeOjIxips/pubchart?oid=1167556203&amp;format=interactive"></iframe>
+        <iframe class="pie" id="US-maltreatment" width="250" height="250" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/1r5Z-XrVoO7o5kY_Mqadp6TAyKDrvGHvw-RSeOjIxips/pubchart?oid=1464385463&amp;format=interactive"></iframe>
+
+        <p>
+            With these differences illustrated, it's clear that state and local efforts are critical to making progress in child safety.
+        </p>
+
+        <img src="images/pictograph.svg"></img>
+        <p>
+            The Pennsylvania Department of Human Resources reported in their 2016 Child Protective Services Report that 46 children in Pennsylvania died as a result of abuse and neglect. Each icon represents one child.
+        </p>
+        <p>
+            9 of those deaths occurred in Philadelphia County, shown using green icons.
+        </p>
+        <p>
+            The most recent outcomes data available from the Support Center for Child Advocates comes from 2014. In that year the agency represented 928 clients and closed 250 cases.
+        </p>
+
+
+        <p>As Tracey Thomasey stated in "An Important Anniversary," the Support Center for Child Advocates has grown drastically in recent years - since she joined the organization in 2000, the staff has doubled in size and the number of cases handled has grown at a similar rate.</p>
+         <div class="clients-chart">
+            <iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/1IsY3KmuQK3uAvAr6avg5H2EsMJO18yVFZew_hxydgUo/pubchart?oid=1621438783&amp;format=interactive"></iframe>
+        </div>
+        <p id="qualifier">Note that figures refer to fiscal years, and that while staffing numbers are available for the agency's first three years it is unknown how many cases were handled in those years.</p>
+    </div>
+
+    <div class="part-3">
+        <h3>A Look at the Country</h3>
+
+        <div class="map">
+
+            <div id="PA-card">
+                <h3>Pennsylvania</h3>
+                <p>Referral Rate: Pennsylvania is one of 7 states which <span class="callout">did not report</span> a referral rate.</p>
+                <p>Victimization Rate: <span class="callout">1.43</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">1.26</span> per 100,000 children died as a result of abuse and neglect.</p>
+                <p class="explain">Pennsylvania's victimization rate was the lowest of all states, but this may have been caused by low referral rates.</p>
+            </div>
+
+            <div class="card" id="prompt-card">
+                <h3>Click a state on the map for side by side comparison.</h3>
+            </div>
+
+            <div class="card" id="AL-card">
+                <h3>Alabama</h3>
+                <p>Referral Rate: The state received <span class="callout">20</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">7.67</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">1.18</span> per 100,000 children died as a result of abuse and neglect.</p>
+                </p><p class="explain">Alabama had the lowest referral rate of all reporting states. 7 states did not report this figure.</p>
+            </div>   
+            <div class="card" id="AK-card">
+                <h3>Alaska</h3>
+                <p>Referral Rate: The state received <span class="callout">80.13</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">15.56</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">2.68</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>           
+            <div class="card" id="AZ-card">
+                <h3>Arizona</h3>
+                <p>Referral Rate: The state received <span class="callout">37.96</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">7.37</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">3.14</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>
+            <div class="card" id="AR-card">
+                <h3>Arkansas</h3>
+                <p>Referral Rate: The state received <span class="callout">74.07</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">13.05</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">5.67</span> per 100,000 children died as a result of abuse and neglect.</p>
+                <p class="explain">Arkansas had the highest fatality rate of all reporting states. 3 states did not report this figure.</p>
+            </div>
+            <div class="card" id="CA-card">
+                <h3>California</h3>
+                <p>Referral Rate: The state received <span class="callout">41.64</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">7.89</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">1.34</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>
+            <div class="card" id="CO-card">
+                <h3>Colorado</h3>
+                <p>Referral Rate: The state received <span class="callout">64.7</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">8.03</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">1.51</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>
+            <div class="card" id="CT-card">
+                <h3>Connecticut</h3>
+                <p>Referral Rate: The state received <span class="callout">51.46</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">9.12</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">1.44</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>            
+            <div class="card" id="DE-card">
+                <h3>Delaware</h3>
+                <p>Referral Rate: The state received <span class="callout">90.07</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">7.52</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">0.49</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>
+            <div class="card" id="DC-card">
+                <h3>Washington, D.C.</h3>
+                <p>Referral Rate: The district receives <span class="callout">124.24</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">11.41</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">2.54</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>
+            <div class="card" id="FL-card">
+                <h3>Florida</h3>
+                <p>Referral Rate: The state received <span class="callout">53.08</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">10.66</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">3.02</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>
+            <div class="card" id="GA-card">
+                <h3>Georgia</h3>
+                <p>Referral Rate: The state received <span class="callout">43.41</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">10.76</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">4.51</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>
+            <div class="card" id="HI-card">
+                <h3>Hawaii</h3>
+                <p>Referral Rate: Hawaii is one of 7 states which <span class="callout">did not report</span> a referral rate.</p>
+                <p>Victimization Rate: <span class="callout">4.85</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">1.29</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>            
+            <div class="card" id="ID-card">
+                <h3>Idaho</h3>
+                <p>Referral Rate: The state received <span class="callout">45.48</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">3.75</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">1.39</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>
+            <div class="card" id="IL-card">
+                <h3>Illinois</h3>
+                <p>Referral Rate: Illinois is one of 7 states which <span class="callout">did not report</span> a referral rate.</p>
+                <p>Victimization Rate: <span class="callout">10.14</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">2.6</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>
+            <div class="card" id="IN-card">
+                <h3>Indiana</h3>
+                <p>Referral Rate: The state received <span class="callout">111.88</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">16.71</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">2.15</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>
+            <div class="card" id="IA-card">
+                <h3>Iowa</h3>
+                <p>Referral Rate: The state received <span class="callout">65.17</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">10.81</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">1.65</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>
+            <div class="card" id="KS-card">
+                <h3>Kansas</h3>
+                <p>Referral Rate: The state received <span class="callout">53.52</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">2.77</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">1.11</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>            
+            <div class="card" id="KY-card">
+                <h3>Kentucky</h3>
+                <p>Referral Rate: The state received <span class="callout">99.93</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">18.68</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">1.58</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>
+            <div class="card" id="LA-card">
+                <h3>Louisiana</h3>
+                <p>Referral Rate: The state received <span class="callout">41.26</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">11.33</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">3.5</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>
+            <div class="card" id="ME-card">
+                <h3>Maine</h3>
+                <p>Referral Rate: The state received <span class="callout">64.24</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">13.15</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: Maine is one of 3 states which <span class="callout">did not report</span> a fatality rate.</p>
+            </div>
+            <div class="card" id="MD-card">
+                <h3>Maryland</h3>
+                <p>Referral Rate: The state received <span class="callout">38.09</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">5.04</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">2.08</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>
+            <div class="card" id="MA-card">
+                <h3>Massachusetts</h3>
+                <p>Referral Rate: The state received <span class="callout">57.99</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">22.41</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: Massachusetts is one of 3 states which <span class="callout">did not report</span> a fatality rate.</p>
+                <p class="explain">Massachusetts had the highest victimization rate of all states.</p>
+            </div>            
+            <div class="card" id="MI-card">
+                <h3>Michigan</h3>
+                <p>Referral Rate: The state received <span class="callout">67.55</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">15.73</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">3.76</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>
+            <div class="card" id="MN-card">
+                <h3>Minnesota</h3>
+                <p>Referral Rate: The state received <span class="callout">59.78</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">3.99</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">1.32</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>
+            <div class="card" id="MS-card">
+                <h3>Mississippi</h3>
+                <p>Referral Rate: The state received <span class="callout">40.96</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">12.01</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">4.82</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>
+            <div class="card" id="MO-card">
+                <h3>Missouri</h3>
+                <p>Referral Rate: The state received <span class="callout">60.23</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">4.1</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">2.52</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>
+            <div class="card" id="MT-card">
+                <h3>Montana</h3>
+                <p>Referral Rate: The state received <span class="callout">72.92</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">8.25</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">0.88</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>            
+            <div class="card" id="NE-card">
+                <h3>Nebraska</h3>
+                <p>Referral Rate: The state received <span class="callout">68.18</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">7.41</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">0.64</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>
+            <div class="card" id="NV-card">
+                <h3>Nevada</h3>
+                <p>Referral Rate: The state received <span class="callout">49.52</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">7.4</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">1.94</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>
+            <div class="card" id="NH-card">
+                <h3>New Hampshire</h3>
+                <p>Referral Rate: The state received <span class="callout">55.2</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">2.82</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">1.52</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>
+            <div class="card" id="NJ-card">
+                <h3>New Jersey</h3>
+                <p>Referral Rate: New Jersey is one of 7 states which <span class="callout">did not report</span> a referral rate.</p>
+                <p>Victimization Rate: <span class="callout">4.85</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">1.15</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>
+            <div class="card" id="NM-card">
+                <h3>New Mexico</h3>
+                <p>Referral Rate: The state received <span class="callout">82.22</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">17.51</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">2.82</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>            
+            <div class="card" id="NY-card">
+                <h3>New York</h3>
+                <p>Referral Rate: New York is one of 7 states which <span class="callout">did not report</span> a referral rate.</p>
+                <p>Victimization Rate: <span class="callout">15.83</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">2.56</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>
+            <div class="card" id="NC-card">
+                <h3>North Carolina</h3>
+                <p>Referral Rate: North Carolina is one of 7 states which <span class="callout">did not report</span> a referral rate.</p>
+                <p>Victimization Rate: <span class="callout">3.43</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: North Carolina is one of 3 states which <span class="callout">did not report</span> a fatality rate.</p>
+            </div>
+            <div class="card" id="ND-card">
+                <h3>North Dakota</h3>
+                <p>Referral Rate: North Dakota is one of 7 states which <span class="callout">did not report</span> a referral rate.</p>
+                <p>Victimization Rate: <span class="callout">10.12</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">1.72</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>
+            <div class="card" id="OH-card">
+                <h3>Ohio</h3>
+                <p>Referral Rate: The state received <span class="callout">65.61</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">8.75</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">2.82</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>
+            <div class="card" id="OK-card">
+                <h3>Oklahoma</h3>
+                <p>Referral Rate: The state received <span class="callout">82.33</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">15.03</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">3.22</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>            
+            <div class="card" id="OR-card">
+                <h3>Oregon</h3>
+                <p>Referral Rate: The state received <span class="callout">76.61</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">12.09</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">3.13</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>
+            <div class="card" id="RI-card">
+                <h3>Rhode Island</h3>
+                <p>Referral Rate: The state received <span class="callout">61.81</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">15.08</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">0</span> per 100,000 children died as a result of abuse and neglect.</p>
+                <p class="explain">Rhode Island was the only reporting state to achieve 0 fatalities due to abuse or neglect in 2015. 3 states did not report this figure.</p>
+            </div>
+            <div class="card" id="SC-card">
+                <h3>South Carolina</h3>
+                <p>Referral Rate: The state received <span class="callout">30.63</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">13.61</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">2.11</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>
+            <div class="card" id="SD-card">
+                <h3>South Dakota</h3>
+                <p>Referral Rate: The state received <span class="callout">74.76</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">5.08</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">5.21</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>
+            <div class="card" id="TN-card">
+                <h3>Tennessee</h3>
+                <p>Referral Rate: The state received <span class="callout">76.73</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">7.59</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">2.14</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>            
+            <div class="card" id="TX-card">
+                <h3>Texas</h3>
+                <p>Referral Rate: The state received <span class="callout">31.96</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">8.84</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">2.25</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>
+            <div class="card" id="UT-card">
+                <h3>Utah</h3>
+                <p>Referral Rate: The state received <span class="callout">42.93</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">10.49</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">0.66</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>
+            <div class="card" id="VT-card">
+                <h3>Vermont</h3>
+                <p>Referral Rate: The state received <span class="callout">156.13</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">7.68</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">2.50</span> per 100,000 children died as a result of abuse and neglect.</p>
+                <p class="explain">Vermont had the highest referral rate of all reporting states. 7 states did not report this figure.</p>
+            </div>
+            <div class="card" id="VA-card">
+                <h3>Virginia</h3>
+                <p>Referral Rate: The state received <span class="callout">38.65</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">3.27</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">2.89</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>
+            <div class="card" id="WA-card">
+                <h3>Washington</h3>
+                <p>Referral Rate: The state received <span class="callout">58.77</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">3.66</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">1.68</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>            
+            <div class="card" id="WV-card">
+                <h3>West Virginia</h3>
+                <p>Referral Rate: The state received <span class="callout">99.11</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">12.80</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">2.37</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>
+            <div class="card" id="WI-card">
+                <h3>Wisconsin</h3>
+                <p>Referral Rate: The state received <span class="callout">59.86</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">3.74</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">1.31</span> per 100,000 children died as a result of abuse and neglect.</p>            
+            </div>
+            <div class="card" id="WY-card">
+                <h3>Wyoming</h3>
+                <p>Referral Rate: The state received <span class="callout">48.91</span> referrals for every 1,000 children.</p>
+                <p>Victimization Rate: <span class="callout">6.97</span> of every 1,000 children were victims of abuse and neglect.</p>
+                <p>Fatality Rate: <span class="callout">1.44</span> per 100,000 children died as a result of abuse and neglect.</p>
+            </div>
+            <svg version="1.1" id="States" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 viewBox="0 0 594 402" style="enable-background:new 0 0 594 402;" xml:space="preserve">
+            
+            <style type="text/css">
+                .st0{fill:#80B23F;stroke:#000000;stroke-width:0.25;stroke-miterlimit:10;}
+                .st1{stroke:#000000;stroke-width:0.25;stroke-miterlimit:10;}
+                .st2{font-family:'HelveticaNeue-Light';}
+                .st3{font-size:13.9979px;}
+            </style>
+
+              <g id="ME" class="state-groups">  
+                <rect id="Maine" x="526.2" y="10" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 537.0465 35.3467)" class="st1 st2 st3">ME</text>
+              </g>  
+
+              <g id="WI" class="state-groups">  
+                <rect id="Wisconsin" x="296.1" y="56" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 309.4385 81.3624)" class="st1 st2 st3">WI</text>
+              </g>  
+
+              <g id="VT" class="state-groups">  
+                <rect id="Vermont" x="480.1" y="56" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 494.4224 81.3624)" class="st1 st2 st3">VT</text>
+              </g>  
+
+              <g id="NH" class="state-groups">  
+                <rect id="New_Hampshire" x="526.2" y="56" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 537.0465 81.3624)" class="st1 st2 st3">NH</text>
+              </g>  
+
+              <g id="WA" class="state-groups">  
+                <rect id="Washington" x="66" y="102" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 76.3472 127.919)" class="st1 st2 st3">WA</text>
+              </g>  
+
+              <g id="ID" class="state-groups">  
+                <rect id="Idaho" x="112" y="102" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 127.4629 127.919)" class="st1 st2 st3">ID</text>
+              </g>  
+
+              <g id="MT" class="state-groups">  
+                <rect id="Montana" x="158" y="102" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 170.688 127.919)" class="st1 st2 st3">MT</text>
+              </g>  
+
+              <g id="ND" class="state-groups">  
+                <rect id="North_Dakota" x="204.1" y="102" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 215.8375 127.919)" class="st1 st2 st3">ND</text>
+              </g>  
+
+              <g id="MN" class="state-groups">  
+                <rect id="Minnesota" x="250.1" y="102" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 262.3941 127.919)" class="st1 st2 st3">MN</text>
+              </g>  
+
+              <g id="IL" class="state-groups">  
+                <rect id="Illinois" x="296.1" y="102" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 312.0074 127.919)" class="st1 st2 st3">IL</text>
+              </g>  
+
+              <g id="MI" class="state-groups">  
+                <rect id="Michigan" x="342.1" y="102" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 356.7349 127.9185)" class="st1 st2 st3">MI</text>
+              </g>  
+
+              <g id="NY" class="state-groups">  
+                <rect id="New_York" x="434.1" y="102" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 447.5396 127.9185)" class="st1 st2 st3">NY</text>
+              </g>  
+
+              <g id="MA" class="state-groups">  
+                <rect id="Massachusetts" x="480.1" y="102" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 492.2525 127.9185)" class="st1 st2 st3">MA</text>
+              </g>  
+
+              <g id="OR" class="state-groups">  
+                <rect id="Oregon" x="66" y="148" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 77.1734 175.4112)" class="st1 st2 st3">OR</text>
+              </g>  
+
+              <g id="NV" class="state-groups">  
+                <rect id="Nevada" x="112" y="148" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 124.6705 175.4116)" class="st1 st2 st3">NV</text>
+              </g>  
+
+              <g id="WY" class="state-groups">  
+                <rect id="Wyoming" x="158" y="148" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 169.6661 175.4116)" class="st1 st2 st3">WY</text>
+              </g>  
+
+              <g id="SD" class="state-groups">  
+                <rect id="South_Dakota" x="204.1" y="148" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 216.3561 175.4116)" class="st1 st2 st3">SD</text>
+              </g>  
+
+              <g id="IA" class="state-groups">  
+                <rect id="Iowa" x="250.1" y="148" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 267.0557 175.4116)" class="st1 st2 st3">IA</text>
+              </g>  
+
+              <g id="IN" class="state-groups">  
+                <rect id="Indiana" x="296.1" y="148" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 310.8599 175.4116)" class="st1 st2 st3">IN</text>
+              </g>  
+
+              <g id="OH" class="state-groups">  
+                <rect id="Ohio" x="342.1" y="148" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 353.9214 175.4116)" class="st1 st2 st3">OH</text>
+              </g>  
+
+              <g id="PA" class="state-groups">  
+                <rect id="Pennsylvania" x="388.1" y="148" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 401.942 175.4117)" class="st1 st2 st3">PA</text>
+              </g>  
+
+              <g id="NJ" class="state-groups">  
+                <rect id="New_Jersey" x="434.1" y="148" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 448.3853 175.4116)" class="st1 st2 st3">NJ</text>
+              </g>  
+
+              <g id="CT" class="state-groups">  
+                <rect id="Connecticut" x="480.1" y="148" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 493.603 175.4116)" class="st1 st2 st3">CT</text>
+              </g>  
+
+              <g id="RI" class="state-groups">  
+                <rect id="Rhode_Island" x="526.2" y="148" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 540.6793 175.4117)" class="st1 st2 st3">RI</text>
+              </g>  
+
+              <g id="CA" class="state-groups">  
+                <rect id="California" x="66" y="194" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 77.6421 219.6319)" class="st1 st2 st3">CA</text>
+              </g>  
+
+              <g id="UT" class="state-groups">  
+                <rect id="Utah" x="112" y="194" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 125.0904 219.6323)" class="st1 st2 st3">UT</text>
+              </g>  
+
+              <g id="CO" class="state-groups">  
+                <rect id="Colorado" x="158" y="194" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 170.2471 219.6323)" class="st1 st2 st3">CO</text>
+              </g>  
+
+              <g id="NE" class="state-groups">  
+                <rect id="Nebraska" x="204.1" y="194" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 216.482 219.6323)" class="st1 st2 st3">NE</text>
+              </g>  
+
+              <g id="MO" class="state-groups">  
+                <rect id="Missouri" x="250.1" y="194" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 262.1353 219.6323)" class="st1 st2 st3">MO</text>
+              </g>  
+
+              <g id="KY" class="state-groups">  
+                <rect id="Kentucky" x="296.1" y="194" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 308.4596 219.6323)" class="st1 st2 st3">KY</text>
+              </g>  
+
+              <g id="WV" class="state-groups">  
+                <rect id="West_Virginia" x="342.1" y="194" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 353.4732 219.6323)" class="st1 st2 st3">WV</text>
+              </g>  
+
+              <g id="VA" class="state-groups">  
+                <rect id="Virginia" x="388.1" y="194" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 402.1099 219.6319)" class="st1 st2 st3">VA</text>
+              </g>  
+
+              <g id="MD" class="state-groups">  
+                <rect id="Maryland" x="434.1" y="194" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 446.2721 219.6323)" class="st1 st2 st3">MD</text>
+              </g>  
+
+              <g id="DE" class="state-groups">  
+                <rect id="Delaware" x="480.1" y="194" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 493.5122 219.6323)" class="st1 st2 st3">DE</text>
+              </g>  
+
+              <g id="AZ" class="state-groups">  
+                <rect id="Arizona" x="112" y="239.7" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 125.4263 267.125)" class="st1 st2 st3">AZ</text>
+              </g>  
+
+              <g id="NM" class="state-groups">  
+                <rect id="New_Mexico" x="158" y="239.7" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 169.6871 267.125)" class="st1 st2 st3">NM</text>
+              </g>  
+
+              <g id="KS" class="state-groups">  
+                <rect id="Kansas" x="204.1" y="239.7" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 216.6148 267.125)" class="st1 st2 st3">KS</text>
+              </g>  
+
+              <g id="AR" class="state-groups">  
+                <rect id="Arkansas" x="250.1" y="239.7" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 264.0323 267.125)" class="st1 st2 st3">AR</text>
+              </g>  
+
+              <g id="TN" class="state-groups">  
+                <rect id="Tennessee" x="296.1" y="239.7" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 308.5503 267.125)" class="st1 st2 st3">TN</text>
+              </g>  
+
+              <g id="NC" class="state-groups">  
+                <rect id="North_Carolina" x="342.1" y="239.7" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 354.1802 267.125)" class="st1 st2 st3">NC</text>
+              </g>  
+
+              <g id="SC" class="state-groups">  
+                <rect id="South_Carolina" x="388.1" y="239.7" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 400.9557 267.125)" class="st1 st2 st3">SC</text>
+              </g>  
+
+              <g id="DC" class="state-groups">  
+                <rect id="DC" x="434.1" y="239.7" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 447.0904 267.125)" class="st1 st2 st3">DC</text>
+              </g>  
+
+              <g id="OK" class="state-groups">  
+                <rect id="Oklahoma" x="204.1" y="285.7" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 215.7398 311.7022)" class="st1 st2 st3">OK</text>
+              </g>  
+
+              <g id="LA" class="state-groups">  
+                <rect id="Louisiana" x="250.1" y="285.7" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 264.8511 311.7022)" class="st1 st2 st3">LA</text>
+              </g>  
+
+              <g id="MS" class="state-groups">  
+                <rect id="Mississippi" x="296.1" y="285.7" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 307.1852 311.7022)" class="st1 st2 st3">MS</text>
+              </g>  
+
+              <g id="AL" class="state-groups">  
+                <rect id="Alabama" x="342.1" y="285.7" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 355.8883 311.7022)" class="st1 st2 st3">AL</text>
+              </g>  
+
+              <g id="GA" class="state-groups">  
+                <rect id="Georgia" x="388.1" y="285.7" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 400.6475 311.7022)" class="st1 st2 st3">GA</text>
+              </g>  
+
+              <g id="AK" class="state-groups">  
+                <rect id="Alaska" x="20" y="331.7" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 31.8433 357.7374)" class="st1 st2 st3">AK</text>
+              </g>  
+
+              <g id="HI" class="state-groups">  
+                <rect id="Hawaii" x="66" y="331.7" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 81.4288 357.7373)" class="st1 st2 st3">HI</text>
+              </g>  
+
+              <g id="TX" class="state-groups">  
+                <rect id="Texas" x="204.1" y="331.7" class="st0" width="44" height="44"></rect>
+                <text transform="matrix(1 0 0 1 217.6085 357.4736)" class="st1 st2 st3">TX</text>
+              </g>  
+
+              <g id="FL" class="state-groups">  
+                <rect id="FL_1_" x="434.1" y="331.7" class="st0" width="44" height="44"></rect>
+                <text id="Florida" transform="matrix(1 0 0 1 449.275 357.4737)" class="st1 st2 st3">FL</text>
+              </g>  
+
+            </svg>
+
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p id="link">For full data process, <a href="https://drive.google.com/drive/folders/0B1ygY4lN5UPBSFE2QlhYT0dQUGs?usp=sharing" target=_blank>click here</a>.</p>
+    </div>
+
+</body>
